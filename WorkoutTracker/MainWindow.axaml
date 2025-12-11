@@ -1,0 +1,116 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="900"
+        x:Class="WorkoutTracker.MainWindow"
+        Title="Workout Tracker"
+        Width="800" Height="900"
+        MinWidth="600" MinHeight="700"
+        Background="{DynamicResource BackgroundPrimaryBrush}"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True">
+    
+    <Grid Margin="0,35,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header Section with Gradient -->
+        <Border Grid.Row="0" Padding="40,30,40,30" Background="{DynamicResource PrimaryGradientBrush}">
+            <StackPanel>
+                <TextBlock Text="💪 Workout Tracker" 
+                           FontSize="36" 
+                           FontWeight="Bold" 
+                           Foreground="White"/>
+            </StackPanel>
+        </Border>
+        
+        <!-- Main Content Area - Form Only -->
+        <Grid Grid.Row="1" Margin="60,40,60,40">
+            <Border Classes="card" MaxWidth="600" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Spacing="24">
+                        <!-- Form Header -->
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="✨ Přidat trénink" Classes="subheading"/>
+                            <TextBlock Text="Zaznamenej svůj dnešní trénink" 
+                                       Classes="muted"/>
+                        </StackPanel>
+                        
+                        <Separator Background="{DynamicResource BorderBrush}" Height="1"/>
+                        
+                        <!-- Form Fields -->
+                        <StackPanel Spacing="20">
+                            <!-- Date Field -->
+                            <StackPanel>
+                                <TextBlock Text="📅 Datum cvičení" Classes="label"/>
+                                <DatePicker Classes="modern" 
+                                           HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+                            
+                            <!-- Exercise Type Field -->
+                            <StackPanel>
+                                <TextBlock Text="🏋️ Typ cvičení" Classes="label"/>
+                                <ComboBox Classes="modern" 
+                                         SelectedIndex="0"
+                                         HorizontalAlignment="Stretch">
+                                    <ComboBoxItem Content="Posilovna"/>
+                                    <ComboBoxItem Content="Běh"/>
+                                    <ComboBoxItem Content="Jóga"/>
+                                    <ComboBoxItem Content="Plavání"/>
+                                    <ComboBoxItem Content="Cyklistika"/>
+                                    <ComboBoxItem Content="Crossfit"/>
+                                    <ComboBoxItem Content="Jiné"/>
+                                </ComboBox>
+                            </StackPanel>
+                            
+                            <!-- Duration Field -->
+                            <StackPanel>
+                                <TextBlock Text="⏱️ Doba trvání (minuty)" Classes="label"/>
+                                <TextBox Classes="modern" 
+                                        Watermark="např. 60"
+                                        HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+                            
+                            <!-- Sets/Reps Field -->
+                            <StackPanel>
+                                <TextBlock Text="🔥 Série / Opakování" Classes="label"/>
+                                <TextBox Classes="modern" 
+                                        Watermark="např. 3x12"
+                                        HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+                            
+                            <!-- Notes Field -->
+                            <StackPanel>
+                                <TextBlock Text="📝 Poznámka (volitelné)" Classes="label"/>
+                                <TextBox Classes="modern" 
+                                        AcceptsReturn="True"
+                                        TextWrapping="Wrap"
+                                        Height="100"
+                                        Watermark="Přidej poznámky k tréninku..."
+                                        HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <Separator Background="{DynamicResource BorderBrush}" Height="1"/>
+                        
+                        <!-- Action Buttons -->
+                        <StackPanel Spacing="12">
+                            <Button Classes="modern" 
+                                    Content="💾 Uložit trénink"
+                                    HorizontalAlignment="Stretch"
+                                    Padding="0,14"/>
+                            
+                            <Button Classes="secondary" 
+                                    Content="🔄 Vymazat formulář"
+                                    HorizontalAlignment="Stretch"
+                                    Padding="0,14"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
