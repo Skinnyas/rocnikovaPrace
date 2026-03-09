@@ -1,0 +1,71 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="WorkoutTracker.LoginWindow"
+        Title="Přihlášení - Workout Tracker"
+        Icon="avares://WorkoutTracker/Assets/icon.png"
+        Width="450" Height="650"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource BgBase}"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="False">
+
+    <Border Padding="40" VerticalAlignment="Center">
+        <StackPanel Spacing="30">
+            <!-- Logo -->
+            <StackPanel HorizontalAlignment="Center" Spacing="12">
+                <Image Source="avares://WorkoutTracker/Assets/icon.png" 
+                       Width="80" Height="80"
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+                <TextBlock Text="Workout Tracker" Classes="h2" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Login View -->
+            <StackPanel x:Name="LoginPanel" Spacing="20">
+                <TextBlock Text="Přihlášení" Classes="h1" HorizontalAlignment="Center"/>
+                
+                <StackPanel>
+                    <TextBlock Text="Uživatelské jméno" Classes="label"/>
+                    <TextBox x:Name="LoginUsername" Classes="modern"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="Heslo" Classes="label"/>
+                    <TextBox x:Name="LoginPassword" Classes="modern" PasswordChar="●"/>
+                </StackPanel>
+
+                <TextBlock x:Name="LoginError" Foreground="#EF4444" FontSize="12" HorizontalAlignment="Center" IsVisible="False"/>
+
+                <Button Classes="primary" Content="Přihlásit se" HorizontalAlignment="Stretch" Click="OnLoginClick"/>
+                
+                <Button Content="Nemáte účet? Zaregistrujte se" Background="Transparent" HorizontalAlignment="Center" Click="ToggleView"/>
+            </StackPanel>
+
+            <!-- Register View -->
+            <StackPanel x:Name="RegisterPanel" Spacing="20" IsVisible="False">
+                <TextBlock Text="Registrace" Classes="h1" HorizontalAlignment="Center"/>
+                
+                <StackPanel>
+                    <TextBlock Text="Celé jméno" Classes="label"/>
+                    <TextBox x:Name="RegFullName" Classes="modern"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="Uživatelské jméno" Classes="label"/>
+                    <TextBox x:Name="RegUsername" Classes="modern"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="Heslo" Classes="label"/>
+                    <TextBox x:Name="RegPassword" Classes="modern" PasswordChar="●"/>
+                </StackPanel>
+
+                <TextBlock x:Name="RegError" Foreground="#EF4444" FontSize="12" HorizontalAlignment="Center" IsVisible="False"/>
+
+                <Button Classes="primary" Content="Vytvořit účet" HorizontalAlignment="Stretch" Click="OnRegisterClick"/>
+                
+                <Button Content="Už máte účet? Přihlaste se" Background="Transparent" HorizontalAlignment="Center" Click="ToggleView"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

@@ -1,0 +1,173 @@
+[
+  {
+    "Id": "b30bd228-e012-4a7c-8c7b-288861b39bd4",
+    "UserUsername": "skajny",
+    "ExerciseType": "B\u011Bh",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 120,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:20:46.9976742Z"
+  },
+  {
+    "Id": "7a4a9255-4326-44d3-90dd-7c183a84fab9",
+    "UserUsername": "skajny",
+    "ExerciseType": "J\u00F3ga",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 1,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:01.9885264Z"
+  },
+  {
+    "Id": "ba8c2471-dce7-4e4d-b395-d64cb9382abe",
+    "UserUsername": "skajny",
+    "ExerciseType": "J\u00F3ga",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 5,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:04.2370169Z"
+  },
+  {
+    "Id": "b97784e0-09ed-4f19-99ca-2faacbf8462f",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 5,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:07.0759476Z"
+  },
+  {
+    "Id": "bbb20ed6-860e-42a1-89a3-3fb5eb96fff3",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 5,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:09.6840293Z"
+  },
+  {
+    "Id": "7a851a55-c87c-480f-b18d-cae37cc73a93",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:09.9082107Z"
+  },
+  {
+    "Id": "631a9798-e9af-4e7c-911c-70bb2cb90122",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:10.3559591Z"
+  },
+  {
+    "Id": "8961d938-ca75-4386-90d4-15b86debbfbf",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:10.5240542Z"
+  },
+  {
+    "Id": "2920041c-07ae-4834-a31a-511def6e32bd",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:10.6916351Z"
+  },
+  {
+    "Id": "455f5746-7aa1-47a1-bd1b-89fef454c256",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:10.8680324Z"
+  },
+  {
+    "Id": "c4328d0a-27d9-4a64-84f3-3e92ccc6e9c1",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:13.2757306Z"
+  },
+  {
+    "Id": "7fcf4f61-1a23-4a59-a2e3-c1dfcf7677d9",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:13.4358574Z"
+  },
+  {
+    "Id": "0fd978e2-e28f-441f-b8c5-f8d0313b27fa",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:13.5883397Z"
+  },
+  {
+    "Id": "a43d264b-1ab9-49cc-935f-b94e172bff23",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:13.7316387Z"
+  },
+  {
+    "Id": "d401579f-9ee8-4c6a-95e8-750aca56ebf3",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:13.8757525Z"
+  },
+  {
+    "Id": "1282976a-91ed-49ec-a3c4-3f5bb569dbf9",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:14.0437518Z"
+  },
+  {
+    "Id": "f952578a-b29c-494e-826b-9898606e0a46",
+    "UserUsername": "skajny",
+    "ExerciseType": "Posilovna",
+    "Date": "2027-02-05T00:00:00",
+    "DurationMinutes": 0,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-06T11:21:14.2040206Z"
+  },
+  {
+    "Id": "31ede38f-9b1a-4c32-888f-0a159aa5f973",
+    "UserUsername": "skajny",
+    "ExerciseType": "J\u00F3ga",
+    "Date": "2026-03-09T00:00:00",
+    "DurationMinutes": 60,
+    "Intensity": "St\u0159edn\u00ED",
+    "CreatedAt": "2026-03-09T11:06:44.8079408Z"
+  },
+  {
+    "Id": "56c16baf-6091-4e3f-a871-35e511653af9",
+    "UserUsername": "skajny",
+    "ExerciseType": "Jin\u00E9",
+    "Date": "2026-03-09T12:10:17.8323924",
+    "DurationMinutes": 60,
+    "Intensity": "Vysok\u00E1",
+    "CreatedAt": "2026-03-09T11:10:30.8619717Z"
+  }
+]

@@ -19,8 +19,17 @@ build_property.ProjectDir = C:\Users\l.lisican\Desktop\rocnikovaPrace12\WorkoutT
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
+[C:/Users/l.lisican/Desktop/rocnikovaPrace12/WorkoutTracker/AddWorkoutWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/l.lisican/Desktop/rocnikovaPrace12/WorkoutTracker/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/l.lisican/Desktop/rocnikovaPrace12/WorkoutTracker/LoginWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/l.lisican/Desktop/rocnikovaPrace12/WorkoutTracker/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/l.lisican/Desktop/rocnikovaPrace12/WorkoutTracker/WorkoutHistoryWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

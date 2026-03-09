@@ -2,115 +2,144 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="900"
+        xmlns:models="clr-namespace:WorkoutTracker.Models"
+        xmlns:converters="clr-namespace:WorkoutTracker.Converters"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="800"
         x:Class="WorkoutTracker.MainWindow"
         Title="Workout Tracker"
-        Width="800" Height="900"
-        MinWidth="600" MinHeight="700"
-        Background="{DynamicResource BackgroundPrimaryBrush}"
+        Icon="avares://WorkoutTracker/Assets/icon.png"
+        Width="1100" Height="800"
+        MinWidth="900" MinHeight="650"
+        Background="{DynamicResource BgBase}"
         TransparencyLevelHint="AcrylicBlur"
-        ExtendClientAreaToDecorationsHint="True">
+        ExtendClientAreaToDecorationsHint="False">
+
+    <Window.Resources>
+        <converters:WorkoutIconConverter x:Key="WorkoutIconConverter"/>
+    </Window.Resources>
     
-    <Grid Margin="0,35,0,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <!-- Header Section with Gradient -->
-        <Border Grid.Row="0" Padding="40,30,40,30" Background="{DynamicResource PrimaryGradientBrush}">
-            <StackPanel>
-                <TextBlock Text="💪 Workout Tracker" 
-                           FontSize="36" 
-                           FontWeight="Bold" 
-                           Foreground="White"/>
-            </StackPanel>
-        </Border>
-        
-        <!-- Main Content Area - Form Only -->
-        <Grid Grid.Row="1" Margin="60,40,60,40">
-            <Border Classes="card" MaxWidth="600" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <StackPanel Spacing="24">
-                        <!-- Form Header -->
-                        <StackPanel Spacing="8">
-                            <TextBlock Text="✨ Přidat trénink" Classes="subheading"/>
-                            <TextBlock Text="Zaznamenej svůj dnešní trénink" 
-                                       Classes="muted"/>
+    <Grid ColumnDefinitions="260, *">
+        <!-- Sidebar -->
+        <Border Grid.Column="0" 
+                Background="{DynamicResource BgSurface}" 
+                BorderBrush="{DynamicResource BorderBase}"
+                BorderThickness="0,0,1,0">
+            <Grid RowDefinitions="Auto, *, Auto" Margin="24, 48, 24, 24">
+                <!-- App Logo/Name -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Spacing="12" Margin="0,0,0,40">
+                    <Image Source="avares://WorkoutTracker/Assets/icon.png" 
+                           Width="32" Height="32"
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                    <TextBlock Text="Workout" VerticalAlignment="Center" Classes="h2" FontWeight="Bold"/>
+                </StackPanel>
+
+                <!-- Navigation -->
+                <ListBox Grid.Row="1" Background="Transparent" BorderThickness="0">
+                    <ListBoxItem Classes="navItem" IsSelected="True">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" 
+                                  Fill="{Binding $parent[ListBoxItem].Foreground}"
+                                  Stretch="Uniform" Width="18" Height="18"/>
+                            <TextBlock Text="Přehled" VerticalAlignment="Center"/>
                         </StackPanel>
-                        
-                        <Separator Background="{DynamicResource BorderBrush}" Height="1"/>
-                        
-                        <!-- Form Fields -->
-                        <StackPanel Spacing="20">
-                            <!-- Date Field -->
-                            <StackPanel>
-                                <TextBlock Text="📅 Datum cvičení" Classes="label"/>
-                                <DatePicker Classes="modern" 
-                                           HorizontalAlignment="Stretch"/>
-                            </StackPanel>
-                            
-                            <!-- Exercise Type Field -->
-                            <StackPanel>
-                                <TextBlock Text="🏋️ Typ cvičení" Classes="label"/>
-                                <ComboBox Classes="modern" 
-                                         SelectedIndex="0"
-                                         HorizontalAlignment="Stretch">
-                                    <ComboBoxItem Content="Posilovna"/>
-                                    <ComboBoxItem Content="Běh"/>
-                                    <ComboBoxItem Content="Jóga"/>
-                                    <ComboBoxItem Content="Plavání"/>
-                                    <ComboBoxItem Content="Cyklistika"/>
-                                    <ComboBoxItem Content="Crossfit"/>
-                                    <ComboBoxItem Content="Jiné"/>
-                                </ComboBox>
-                            </StackPanel>
-                            
-                            <!-- Duration Field -->
-                            <StackPanel>
-                                <TextBlock Text="⏱️ Doba trvání (minuty)" Classes="label"/>
-                                <TextBox Classes="modern" 
-                                        Watermark="např. 60"
-                                        HorizontalAlignment="Stretch"/>
-                            </StackPanel>
-                            
-                            <!-- Sets/Reps Field -->
-                            <StackPanel>
-                                <TextBlock Text="🔥 Série / Opakování" Classes="label"/>
-                                <TextBox Classes="modern" 
-                                        Watermark="např. 3x12"
-                                        HorizontalAlignment="Stretch"/>
-                            </StackPanel>
-                            
-                            <!-- Notes Field -->
-                            <StackPanel>
-                                <TextBlock Text="📝 Poznámka (volitelné)" Classes="label"/>
-                                <TextBox Classes="modern" 
-                                        AcceptsReturn="True"
-                                        TextWrapping="Wrap"
-                                        Height="100"
-                                        Watermark="Přidej poznámky k tréninku..."
-                                        HorizontalAlignment="Stretch"/>
-                            </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Classes="navItem" Tapped="OnHistoryNavTapped">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Path Data="M13,3a9,9,0,0,0-9,9H1l3.89,3.89.07.07L9,12H6a7,7,0,1,1,7,7,7.07,7.07,0,0,1-6-3.39L5.56,18.05A9,9,0,1,0,13,3Zm-1,5v5l4.25,2.52.75-1.23L13.5,12.31V8Z" 
+                                  Fill="{Binding $parent[ListBoxItem].Foreground}"
+                                  Stretch="Uniform" Width="18" Height="18"/>
+                            <TextBlock Text="Historie" VerticalAlignment="Center"/>
                         </StackPanel>
-                        
-                        <Separator Background="{DynamicResource BorderBrush}" Height="1"/>
-                        
-                        <!-- Action Buttons -->
-                        <StackPanel Spacing="12">
-                            <Button Classes="modern" 
-                                    Content="💾 Uložit trénink"
-                                    HorizontalAlignment="Stretch"
-                                    Padding="0,14"/>
-                            
-                            <Button Classes="secondary" 
-                                    Content="🔄 Vymazat formulář"
-                                    HorizontalAlignment="Stretch"
-                                    Padding="0,14"/>
+                    </ListBoxItem>
+                </ListBox>
+
+                <!-- User Profile (Bottom) -->
+                <Border Grid.Row="2" Padding="0,20,0,0" BorderBrush="{DynamicResource BorderBase}" BorderThickness="0,1,0,0">
+                    <StackPanel Orientation="Horizontal" Spacing="12">
+                        <Border Width="40" Height="40" CornerRadius="20" Background="{DynamicResource BgSurfaceHover}">
+                            <TextBlock x:Name="UserInitials" Text="U" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                        </Border>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock x:Name="SidebarUserName" Text="Uživatel" FontWeight="SemiBold" FontSize="14"/>
+                            <TextBlock Text="Free Plan" Classes="muted" FontSize="12"/>
                         </StackPanel>
                     </StackPanel>
-                </ScrollViewer>
-            </Border>
-        </Grid>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="40" Spacing="32">
+                <!-- Header Area -->
+                <Grid ColumnDefinitions="*, Auto">
+                    <StackPanel Grid.Column="0" Spacing="4">
+                        <TextBlock x:Name="WelcomeTextBlock" Text="Vítej zpět! 👋" Classes="h1"/>
+                        <TextBlock Text="Dnes je skvělý den na to posunout své limity." Classes="muted"/>
+                    </StackPanel>
+                    <Button Grid.Column="1" Classes="primary" Content="+ Nový záznam" Click="OnAddNewWorkoutClick"/>
+                </Grid>
+
+                <!-- Stats Summary -->
+                <UniformGrid Columns="3">
+                    <Border Classes="card" Margin="0,0,10,0">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Tento týden" Classes="label"/>
+                            <TextBlock x:Name="StatCountThisWeek" Text="0" Classes="h1"/>
+                            <TextBlock Text="Tréninkové jednotky" Classes="muted" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Classes="card" Margin="10,0,10,0">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Celkový čas" Classes="label"/>
+                            <TextBlock x:Name="StatTotalMinutes" Text="0 min" Classes="h1"/>
+                            <TextBlock x:Name="StatTrend" Text="Data z historie" Foreground="#10B981" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Classes="card" Margin="10,0,0,0">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Spálené kalorie" Classes="label"/>
+                            <TextBlock x:Name="StatCalories" Text="0" Classes="h1"/>
+                            <TextBlock Text="Odhadováno" Classes="muted" FontSize="12"/>
+                        </StackPanel>
+                    </Border>
+                </UniformGrid>
+
+                <!-- Main Content Section -->
+                <StackPanel Spacing="20">
+                    <TextBlock Text="Nedávné tréninky" Classes="h2"/>
+                    <Border Classes="card" Padding="0">
+                        <StackPanel>
+                            <ItemsControl x:Name="RecentWorkoutsList">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate x:DataType="models:Workout">
+                                        <Border BorderBrush="{DynamicResource BorderBase}" BorderThickness="0,0,0,1" Padding="20">
+                                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                                <Border Grid.Column="0" Width="40" Height="40" CornerRadius="8" Background="#334155" Margin="0,0,16,0">
+                                                    <Path Data="{Binding ExerciseType, Converter={StaticResource WorkoutIconConverter}}" 
+                                                          Fill="#818CF8" Stretch="Uniform" Width="20" Height="20"/>
+                                                </Border>
+                                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                                    <TextBlock Text="{Binding ExerciseType}" FontWeight="SemiBold"/>
+                                                    <StackPanel Orientation="Horizontal" Spacing="4">
+                                                        <TextBlock Text="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}" Classes="muted" FontSize="12"/>
+                                                        <TextBlock Text="•" Classes="muted" FontSize="12"/>
+                                                        <TextBlock Text="{Binding DurationMinutes}" Classes="muted" FontSize="12"/>
+                                                        <TextBlock Text="min" Classes="muted" FontSize="12"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                                <TextBlock Grid.Column="2" Text="{Binding Intensity}" VerticalAlignment="Center" Classes="muted"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <Button Content="Zobrazit vše" Click="OnShowAllWorkoutsClick" Background="Transparent" BorderThickness="0" HorizontalAlignment="Center" Margin="0,0,0,16" Foreground="{DynamicResource TxtSecondary}"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>

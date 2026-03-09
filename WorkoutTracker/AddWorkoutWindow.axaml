@@ -1,0 +1,56 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="WorkoutTracker.AddWorkoutWindow"
+        Title="Nový záznam - Workout Tracker"
+        Icon="avares://WorkoutTracker/Assets/icon.png"
+        Width="500" Height="600"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource BgBase}"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="False">
+
+    <Border Padding="30" VerticalAlignment="Center">
+        <StackPanel Spacing="24">
+            <TextBlock Text="Nový trénink" Classes="h1" HorizontalAlignment="Center"/>
+            
+            <StackPanel Spacing="20">
+                <StackPanel>
+                    <TextBlock Text="Typ cvičení" Classes="label"/>
+                    <ComboBox x:Name="TypeInput" Classes="modern" SelectedIndex="0" HorizontalAlignment="Stretch">
+                        <ComboBoxItem Content="Posilovna"/>
+                        <ComboBoxItem Content="Běh"/>
+                        <ComboBoxItem Content="Jóga"/>
+                        <ComboBoxItem Content="Plavání"/>
+                        <ComboBoxItem Content="Cyklistika"/>
+                        <ComboBoxItem Content="Jiné"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBlock Text="Datum" Classes="label"/>
+                    <DatePicker x:Name="DateInput" Classes="modern" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+
+                <Grid ColumnDefinitions="*, *">
+                    <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                        <TextBlock Text="Čas (min)" Classes="label"/>
+                        <TextBox x:Name="DurationInput" Classes="modern" Watermark="např. 60"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="8,0,0,0">
+                        <TextBlock Text="Intenzita" Classes="label"/>
+                        <ComboBox x:Name="IntensityInput" Classes="modern" SelectedIndex="1" HorizontalAlignment="Stretch">
+                            <ComboBoxItem Content="Nízká"/>
+                            <ComboBoxItem Content="Střední"/>
+                            <ComboBoxItem Content="Vysoká"/>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel Spacing="12" Margin="0,10,0,0">
+                <Button Classes="primary" Content="Uložit trénink" Click="OnSaveClick" HorizontalAlignment="Stretch"/>
+                <Button Content="Zrušit" Click="OnCancelClick" HorizontalAlignment="Stretch" Background="Transparent"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

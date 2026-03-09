@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using System;
 
 namespace WorkoutTracker;
@@ -9,8 +9,23 @@ class Program
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) => BuildAvaloniaApp()
-        .StartWithClassicDesktopLifetime(args);
+    public static void Main(string[] args)
+    {
+        try
+        {
+            BuildAvaloniaApp()
+                .StartWithClassicDesktopLifetime(args);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("------------------------------------------");
+            Console.WriteLine("Aplikaci se nepodařilo spustit!");
+            Console.WriteLine("CHYBA: " + ex.Message);
+            Console.WriteLine(ex.StackTrace);
+            Console.WriteLine("------------------------------------------");
+            throw;
+        }
+    }
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()

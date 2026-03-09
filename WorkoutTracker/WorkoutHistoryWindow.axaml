@@ -1,0 +1,71 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:WorkoutTracker.Models"
+        xmlns:converters="clr-namespace:WorkoutTracker.Converters"
+        x:Class="WorkoutTracker.WorkoutHistoryWindow"
+        Title="Historie tréninků - Workout Tracker"
+        Icon="avares://WorkoutTracker/Assets/icon.png"
+        Width="900" Height="700"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource BgBase}"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="False">
+
+    <Window.Resources>
+        <converters:WorkoutIconConverter x:Key="WorkoutIconConverter"/>
+    </Window.Resources>
+
+    <Grid RowDefinitions="Auto, *">
+        <!-- Header -->
+        <Border Grid.Row="0" Padding="30, 40, 30, 20">
+            <StackPanel Orientation="Horizontal" Spacing="15">
+                <TextBlock Text="Kompletní historie" Classes="h1"/>
+                <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="12" Padding="8,2" VerticalAlignment="Center">
+                    <TextBlock x:Name="CountBadge" Text="0" Foreground="White" FontSize="12" FontWeight="Bold"/>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <!-- Content -->
+        <ScrollViewer Grid.Row="1" Padding="30, 0, 30, 30">
+            <ItemsControl x:Name="AllWorkoutsItemsControl">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:Workout">
+                        <Border Classes="card" Width="260" Margin="0,0,16,16">
+                            <StackPanel Spacing="12">
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <Border Grid.Column="0" Width="36" Height="36" CornerRadius="8" Background="#334155" Margin="0,0,12,0">
+                                        <Path Data="{Binding ExerciseType, Converter={StaticResource WorkoutIconConverter}}" 
+                                              Fill="#818CF8" Stretch="Uniform" Width="18" Height="18"/>
+                                    </Border>
+                                    <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding ExerciseType}" FontWeight="Bold" FontSize="14"/>
+                                        <TextBlock Text="{Binding Date, StringFormat=\{0:dd.MM.yyyy\}}" Classes="muted" FontSize="11"/>
+                                    </StackPanel>
+                                </Grid>
+                                
+                                <Separator Background="{DynamicResource BorderBase}" Height="1" Opacity="0.5"/>
+                                
+                                <Grid ColumnDefinitions="*, *">
+                                    <StackPanel Grid.Column="0">
+                                        <TextBlock Text="Trvání" Classes="label" FontSize="10" Margin="0"/>
+                                        <TextBlock Text="{Binding DurationMinutes, StringFormat=\{0\} min}" FontSize="13" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock Text="Intenzita" Classes="label" FontSize="10" Margin="0"/>
+                                        <TextBlock Text="{Binding Intensity}" FontSize="13" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
